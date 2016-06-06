@@ -1,5 +1,7 @@
 
+import static java.lang.Math.random;
 import java.util.ArrayList;
+import java.util.Random;
 import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -61,22 +63,22 @@ public class MemoriaVirtual extends javax.swing.JFrame {
         memoriaRAM.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
         memoriaRAM.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"1", null},
-                {"2", null},
-                {"3", null},
-                {"4", null},
-                {"5", null},
-                {"6", null},
-                {"7", null},
-                {"8", null},
-                {"9", null},
-                {"10", null},
-                {"11", null},
-                {"12", null},
-                {"13", null},
-                {"14", null},
-                {"15", null},
-                {"16", null}
+                {"1", ""},
+                {"2", ""},
+                {"3", ""},
+                {"4", ""},
+                {"5", ""},
+                {"6", ""},
+                {"7", ""},
+                {"8", ""},
+                {"9", ""},
+                {"10", ""},
+                {"11", ""},
+                {"12", ""},
+                {"13", ""},
+                {"14", ""},
+                {"15", ""},
+                {"16", ""}
             },
             new String [] {
                 "Espacio", "Procesos"
@@ -91,9 +93,6 @@ public class MemoriaVirtual extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(memoriaRAM);
-        if (memoriaRAM.getColumnModel().getColumnCount() > 0) {
-            memoriaRAM.getColumnModel().getColumn(0).setHeaderValue("Espacio");
-        }
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 120, 190, 290));
 
@@ -379,23 +378,11 @@ public class MemoriaVirtual extends javax.swing.JFrame {
             llenaRAM = true;            
         }
         if(llenaRAM){
-            for (int i = 0; i <=tamanoProceso; i++){
-                if (espacioRAM + i<16){
-                    if (!memoriaRAM.getValueAt(espacioRAM + i, 1).toString().equals("")){
-                        int tamano = Integer.parseInt(memoriaRAM.getValueAt(espacioRAM + i, 1).toString().substring(6));            
-                        llenarSSD(tamano,memoriaRAM.getValueAt(espacioRAM + i, 1).toString());
-                        for (int a = 0; a <= tamano;a++){
-                            if ((espacioRAM + i+ a)<16){
-                                memoriaRAM.setValueAt("",espacioRAM + i+ a, 1);
-                            }
-                        }
-                        break;
-                    }
-                }
-            }
+            toSSD(tamanoProceso);
         }
         if (17-espacioRAM<tamanoProceso){
             espacioRAM = 0;
+            llenaRAM = true;
             llenarRAM(tamanoProceso,proceso);
         }
         else{
@@ -405,7 +392,29 @@ public class MemoriaVirtual extends javax.swing.JFrame {
         }
         
     }
-
+    
+    private void toSSD(int tamanoProceso){
+        int temEspacioRAM = espacioRAM;
+        ArrayList procesosToSSD = new ArrayList();
+        for (int i=0; i < tamanoProceso; i++){
+            if (temEspacioRAM + i < 16){
+                if (!memoriaRAM.getValueAt(temEspacioRAM + i, 1).toString().equals("")){
+                    procesosToSSD.add(memoriaRAM.getValueAt(temEspacioRAM + i, 1));
+                    i += Integer.parseInt(memoriaRAM.getValueAt(temEspacioRAM + i, 1).toString().substring(6))-1;
+                }
+            }
+        }
+        for (int i = 0; i<procesosToSSD.size(); i++){
+            int tamano = Integer.parseInt(procesosToSSD.get(i).toString().substring(6));            
+            llenarSSD(tamano,procesosToSSD.get(i).toString());
+            for (int a = 0; a < tamano;a++){
+                if ((espacioRAM + i+ a)<16){
+                    memoriaRAM.setValueAt("",temEspacioRAM + i+ a, 1);
+                }
+            }
+        }
+    }
+    
     private void missOutput(String procesoRun) {
         output.append("MISS: "+procesoRun + " encontrado en ---> SSD\n");
     }
@@ -430,4 +439,5 @@ public class MemoriaVirtual extends javax.swing.JFrame {
             }
         }
     }
+
 }

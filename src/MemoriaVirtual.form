@@ -61,33 +61,13 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Comic Sans MS" size="14" style="0"/>
             </Property>
-            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="2" rowCount="16">
-                <Column editable="false" title="Espacio" type="java.lang.Object">
-                  <Data value="1"/>
-                  <Data value="2"/>
-                  <Data value="3"/>
-                  <Data value="4"/>
-                  <Data value="5"/>
-                  <Data value="6"/>
-                  <Data value="7"/>
-                  <Data value="8"/>
-                  <Data value="9"/>
-                  <Data value="10"/>
-                  <Data value="11"/>
-                  <Data value="12"/>
-                  <Data value="13"/>
-                  <Data value="14"/>
-                  <Data value="15"/>
-                  <Data value="16"/>
-                </Column>
-                <Column editable="false" title="Procesos" type="java.lang.Object"/>
-              </Table>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new javax.swing.table.DefaultTableModel(&#xa;    new Object [][] {&#xa;        {&quot;1&quot;, &quot;&quot;},&#xa;        {&quot;2&quot;, &quot;&quot;},&#xa;        {&quot;3&quot;, &quot;&quot;},&#xa;        {&quot;4&quot;, &quot;&quot;},&#xa;        {&quot;5&quot;, &quot;&quot;},&#xa;        {&quot;6&quot;, &quot;&quot;},&#xa;        {&quot;7&quot;, &quot;&quot;},&#xa;        {&quot;8&quot;, &quot;&quot;},&#xa;        {&quot;9&quot;, &quot;&quot;},&#xa;        {&quot;10&quot;, &quot;&quot;},&#xa;        {&quot;11&quot;, &quot;&quot;},&#xa;        {&quot;12&quot;, &quot;&quot;},&#xa;        {&quot;13&quot;, &quot;&quot;},&#xa;        {&quot;14&quot;, &quot;&quot;},&#xa;        {&quot;15&quot;, &quot;&quot;},&#xa;        {&quot;16&quot;, &quot;&quot;}&#xa;    },&#xa;    new String [] {&#xa;        &quot;Espacio&quot;, &quot;Procesos&quot;&#xa;    }&#xa;) {&#xa;    boolean[] canEdit = new boolean [] {&#xa;        false, false&#xa;    };&#xa;&#xa;    public boolean isCellEditable(int rowIndex, int columnIndex) {&#xa;        return canEdit [columnIndex];&#xa;    }&#xa;}" type="code"/>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
               <TableColumnModel selectionModel="0">
                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title value="Espacio"/>
+                  <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
