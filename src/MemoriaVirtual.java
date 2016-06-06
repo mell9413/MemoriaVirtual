@@ -407,12 +407,10 @@ public class MemoriaVirtual extends javax.swing.JFrame {
         for (int i = 0; i<procesosToSSD.size(); i++){
             int tamano = Integer.parseInt(procesosToSSD.get(i).toString().substring(6));            
             llenarSSD(tamano,procesosToSSD.get(i).toString());
+            temEspacioRAM = buscarPosicionRAM(procesosToSSD.get(i).toString());
+            System.out.println(temEspacioRAM);
             for (int a = 0; a < tamano;a++){
-                System.out.println(temEspacioRAM + i+ a);
-                if (memoriaRAM.getValueAt(temEspacioRAM + i, 1).toString().equals("")){temEspacioRAM++;}
-                if ((temEspacioRAM + i+ a)<16){
-                    memoriaRAM.setValueAt("",temEspacioRAM + i+ a, 1);
-                }
+                    memoriaRAM.setValueAt("",temEspacioRAM+ a, 1);
             }
         }
     }
@@ -432,6 +430,15 @@ public class MemoriaVirtual extends javax.swing.JFrame {
             }
         }
         return false;
+    }
+    
+    private int buscarPosicionRAM(String procesoRun) {
+        for (int i =0 ; i < 16; i++){
+            if (procesoRun.equals(memoriaRAM.getValueAt(i, 1).toString())){
+                return i;
+            }
+        }
+        return 0;
     }
     
     private void quitarProcesoSSD(String procesoRun){
