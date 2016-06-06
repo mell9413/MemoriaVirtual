@@ -408,7 +408,9 @@ public class MemoriaVirtual extends javax.swing.JFrame {
             int tamano = Integer.parseInt(procesosToSSD.get(i).toString().substring(6));            
             llenarSSD(tamano,procesosToSSD.get(i).toString());
             for (int a = 0; a < tamano;a++){
-                if ((espacioRAM + i+ a)<16){
+                System.out.println(temEspacioRAM + i+ a);
+                if (memoriaRAM.getValueAt(temEspacioRAM + i, 1).toString().equals("")){temEspacioRAM++;}
+                if ((temEspacioRAM + i+ a)<16){
                     memoriaRAM.setValueAt("",temEspacioRAM + i+ a, 1);
                 }
             }
