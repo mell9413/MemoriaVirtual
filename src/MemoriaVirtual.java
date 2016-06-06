@@ -55,7 +55,7 @@ public class MemoriaVirtual extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tamanoProceso.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        tamanoProceso.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
+        tamanoProceso.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), Integer.valueOf(16), Integer.valueOf(1)));
         tamanoProceso.setToolTipText("");
         tamanoProceso.setValue(1);
         getContentPane().add(tamanoProceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 60, 40));
