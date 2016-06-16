@@ -22,6 +22,8 @@ public class MemoriaVirtual extends javax.swing.JFrame {
         createArray(1);
         createArray(2);
         createArray(3);
+        createArray(4);
+        createArray(5);
     }
 
     /**
@@ -275,7 +277,7 @@ public class MemoriaVirtual extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonCrearProcesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCrearProcesoActionPerformed
-        if ((espacioSSD + (int)tamanoProceso.getValue()) <= 50) {
+        if ((espacioSSD + (int)tamanoProceso.getValue()) <= 100) {
             String proceso = abecedario.get(cantidadProcesos) + "    "+tamanoProceso.getValue().toString();
             modelo.add(cantidadProcesos++, proceso);
             llenarSSD((int)(tamanoProceso.getValue()),modelo.get(cantidadProcesos-1).toString());
