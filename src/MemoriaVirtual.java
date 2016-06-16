@@ -410,7 +410,6 @@ public class MemoriaVirtual extends javax.swing.JFrame {
             int tamano = Integer.parseInt(procesosToSSD.get(i).toString().substring(6));            
             llenarSSD(tamano,procesosToSSD.get(i).toString());
             temEspacioRAM = buscarPosicionRAM(procesosToSSD.get(i).toString());
-            System.out.println(temEspacioRAM);
             for (int a = 0; a < tamano;a++){
                     memoriaRAM.setValueAt("",temEspacioRAM+ a, 1);
             }
